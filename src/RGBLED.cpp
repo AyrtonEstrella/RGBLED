@@ -20,7 +20,7 @@ RGBLED::RGBLED(uint16_t redPin, uint16_t greenPin, uint16_t bluePin) {
           LED smooth transition effect.
 */
 void RGBLED::UpdateAnimation() {
-  if (__redValue != _toRedValue || _greenValue != _toGreenValue || _blueValue != _toBlueValue) {
+  if (_redValue != _toRedValue || _greenValue != _toGreenValue || _blueValue != _toBlueValue) {
     if (_redValue < _toRedValue)
       _redValue += 1;
     else if (_redValue > _toRedValue)

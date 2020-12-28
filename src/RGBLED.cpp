@@ -1,10 +1,18 @@
 #include <Arduino.h>
 #include "RGBLED.h"
 
-RGBLED::RGBLED(uint16_t redPin, uint16_t greenPin, uint16_t bluePin) {
+/**
+  @brief  Class constructor
+  @param redPin Pin attached to red LED
+  @param greenPin Pin attached to green LED
+  @param bluePin Pin attached to blue LED
+  @param polarity Determine if the LED turns on with HIGH or LOW state
+*/
+RGBLED::RGBLED(uint16_t redPin, uint16_t greenPin, uint16_t bluePin, bool polarity) {
   _redPin = redPin;
   _greenPin = greenPin;
   _bluePin = bluePin;
+  _polarity = polarity;
 
   ledcSetup(_redChannel, _pwmFrequency, _pwmResolution);
   ledcSetup(_greenChannel, _pwmFrequency, _pwmResolution);
@@ -48,15 +56,16 @@ void RGBLED::UpdateColor() {
 
   ApplyBrightness();  
 
-  #ifdef LED_INVERT_CONTROL_SIGNAL
+  if (_polarity == LOW) {
     ledcWrite(_redChannel, PWM_RANGE_VALUE - _redValue);
     ledcWrite(_greenChannel, PWM_RANGE_VALUE - _greenValue);
     ledcWrite(_blueChannel, PWM_RANGE_VALUE - _blueValue);
-  #else
+  }
+  else {
     ledcWrite(_redChannel, _redValue);
     ledcWrite(_greenChannel, _greenValue);
     ledcWrite(_blueChannel, _blueValue);
-  #endif
+  }
 }
 
 /**

@@ -50,13 +50,14 @@ class RGBLED {
     uint16_t _pwmFrequency = 5000;
     uint8_t _redChannel = 0, _greenChannel = 1, _blueChannel = 2;
     uint8_t _pwmResolution = 8;
-    uint16_t _redPin = 0, _greenPin = 0, _bluePin = 0; 
+    uint16_t _redPin = 0, _greenPin = 0, _bluePin = 0;
+    bool _polarity;
 
     void UpdateAnimation();
     void UpdateColor();
     void ApplyBrightness();
   public:
-    RGBLED(uint16_t redPin, uint16_t greenPin, uint16_t bluePin);
+    RGBLED(uint16_t redPin, uint16_t greenPin, uint16_t bluePin, bool polarity);
 
     uint32_t GetCurrentColor();
     void SetBrightness(uint8_t brightness);

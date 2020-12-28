@@ -48,7 +48,7 @@ class RGBLED {
     uint8_t _brightness = 25;
 
     uint16_t _pwmFrequency = 5000;
-    uint8_t _redChannel = 0; _greenChannel = 1; _blueChannel = 2;
+    uint8_t _redChannel = 0, _greenChannel = 1, _blueChannel = 2;
     uint8_t _pwmResolution = 8,
     uint16_t _redPin = 0, _greenPin = 0, _bluePin = 0; 
 

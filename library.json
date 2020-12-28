@@ -1,6 +1,6 @@
 {
   "name": "RGBLED",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library with RGBLED functions",
   "keywords": "rgb, led",
   "repository":

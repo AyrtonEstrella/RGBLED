@@ -22,5 +22,5 @@
 
   },
   "frameworks": "Arduino",
-  "platforms": "*"
+  "platforms": "espressif32"
 }
